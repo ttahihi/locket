@@ -1,10 +1,10 @@
-#!name=Locket-Ttahihi_Gold
-#!desc=Crack By Ttahihi
+#!name=Locket-Ttahihi
+#!desc=Crack by Ttahihi
 #!author=Ttahihi
 
-[Script]
-# Script chính xử lý response
-Locket_Ttahihi = type=http-response, pattern=^https:\/\/api\.locketcam\.com\/.*, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ttahihi/locket/main/Locket_Ttahihi.js, timeout=30, enable=true
+[MITM]
+hostname = %APPEND% api.revenuecat.com
 
-# Script xoá header request
-deleteHeader = type=http-request, pattern=^https:\/\/api\.locketcam\.com\/.*, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ttahihi/locket/main/deleteHeader.js, timeout=30, enable=true
+[Script]
+http-response ^https:\/\/api\.revenuecat\.com\/.+  script-path=https://raw.githubusercontent.com/ttahihi/locket/main/Locket_Ttahihi.js, requires-body=true, tag=Locket Unlock
+http-request ^https:\/\/api\.revenuecat\.com\/.+  script-path=https://raw.githubusercontent.com/ttahihi/locket/main/deleteHeader.js, tag=Delete Header
